@@ -44,6 +44,37 @@ def test_insert_into_starting_with_an_empty_list_ten_strings_ascending():
                          ], (
             "Successfully inserted in ascending order ten strings into a list" )
 
+
+def test_insert_into_starting_with_an_empty_list_ten_strings_descending():
+    items_to_insert = [
+        'Harriet Tubman',
+        'Mansa Musa',
+        'Frida Kahlo',
+        'Genghis Khan',
+        'Leonardo da Vinci',
+        'Marie Curie',
+        'Rani Lakshmibai',
+        'Tȟašúŋke Witkó',
+        'Cleopatra VII',
+        'Queen Seondeok of Silla',
+    ]
+    item_list = []
+    for item in items_to_insert:
+        insert_into(item_list, item, ascending=False)
+    assert item_list == [
+                           'Tȟašúŋke Witkó',
+                           'Rani Lakshmibai',
+                           'Queen Seondeok of Silla',
+                           'Marie Curie',
+                           'Mansa Musa',
+                           'Leonardo da Vinci',
+                           'Harriet Tubman',
+                           'Genghis Khan',
+                           'Frida Kahlo',
+                           'Cleopatra VII',
+                         ], (
+            "Successfully inserted in descending order ten strings into a list" )
+
 #if __name__ == '__main__':
 #   test_insert_into_starting_with_an_empty_list_ten_items_ascending()
 #    test_insert_into_starting_with_an_empty_list_ten_items_descending()
