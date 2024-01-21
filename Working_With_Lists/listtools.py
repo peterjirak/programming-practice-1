@@ -52,7 +52,9 @@ It recursively calls itself until it finds the place in which to insert the item
 it then inserts the item and returns. On each recursive call the difference between
 right - left is reduced by half.
 """
-def insert_into(item_list, item, left, right, ascending):
+def insert_into(item_list, item, left=None, right=None, ascending=True):
+    left = 0 if left is None else left
+    right = max(len(item_list) - 1, 0) if right is None else right
     if left == right:
         if len(item_list) == 0:
             item_list.append(item)
