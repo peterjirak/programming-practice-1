@@ -93,6 +93,7 @@ def insert_into(item_list, item, left=None, right=None, ascending=True):
             if item <= item_list[left]:
                 shift_right(item_list, left)
                 item_list[left] = item
+                return
             elif item >= item_list[right]:
                 if right == len(item_list) - 1:
                     item_list.append(item)
@@ -109,6 +110,7 @@ def insert_into(item_list, item, left=None, right=None, ascending=True):
             if item >= item_list[left]:
                 shift_right(item_list, left)
                 item_list[left] = item
+                return
             elif item <= item_list[right]:
                 if right == len(item_list) - 1:
                     item_list.append(item)
@@ -132,19 +134,27 @@ def insert_into(item_list, item, left=None, right=None, ascending=True):
         mid = ( left + right ) // 2
         if item == item_list[mid]:
             insert_into(item_list, item, mid, mid, ascending)
+            return
         elif item < item_list[mid]:
             insert_into(item_list, item, left, mid, ascending)
+            return
         else:
             insert_into(item_list, item, mid, right, ascending)
+            return
     else:
         if item >= item_list[left]:
             insert_into(item_list, item, left, left, ascending)
+            return
         elif item <= item_list[right]:
             insert_into(item_list, item, right, right, ascending)
+            return
         mid = ( left + right ) // 2
         if item == item_list[mid]:
             insert_into(item_list, item, mid, mid, ascending)
+            return
         elif item > item_list[mid]:
             insert_into(item_list, item, left, mid, ascending)
+            return
         else:
             insert_into(item_list, item, mid, right, ascending)
+            return
