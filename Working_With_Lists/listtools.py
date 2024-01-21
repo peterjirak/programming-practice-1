@@ -55,7 +55,10 @@ right - left is reduced by half.
 def insert_into(item_list, item, left=None, right=None, ascending=True):
     left = 0 if left is None else left
     right = max(len(item_list) - 1, 0) if right is None else right
-    if left == right:
+    if left > right:
+        raise ValueError(f'Bad invocation of insert_into - left == {left}, ' +
+                         f'right == {right} - left cannot be greater than right.')
+    elif left == right:
         if len(item_list) == 0:
             item_list.append(item)
             return
