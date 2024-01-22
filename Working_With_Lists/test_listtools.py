@@ -71,7 +71,7 @@ def test_insert_into_starting_with_an_empty_list_ten_strings_descending():
                            'Harriet Tubman',
                            'Genghis Khan',
                            'Frida Kahlo',
-                           'Cleopatra VII',
+                           'Cleopatra VII'
                          ], (
             "Successfully inserted in descending order ten strings into a list" )
 
