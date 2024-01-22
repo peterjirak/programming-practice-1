@@ -21,7 +21,7 @@ def test_sort_in_place_ten_strings_ascending():
         'Rani Lakshmibai',
         'Tȟašúŋke Witkó',
         'Cleopatra VII',
-        'Queen Seondeok of Silla',
+        'Queen Seondeok of Silla'
     ]
     sort_in_place(items, ascending=True)
     assert items == [
@@ -49,7 +49,7 @@ def test_sort_in_place_ten_strings_descending():
         'Rani Lakshmibai',
         'Tȟašúŋke Witkó',
         'Cleopatra VII',
-        'Queen Seondeok of Silla',
+        'Queen Seondeok of Silla'
     ]
     sort_in_place(items, ascending=False)
     assert items == [
@@ -62,7 +62,7 @@ def test_sort_in_place_ten_strings_descending():
                         'Harriet Tubman',
                         'Genghis Khan',
                         'Frida Kahlo',
-                        'Cleopatra VII',
+                        'Cleopatra VII'
                     ], (
             "Successfully sorted in descending order a list of ten strings" )
 
