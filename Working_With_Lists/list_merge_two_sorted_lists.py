@@ -48,6 +48,7 @@ def list_merge_two_sorted_lists(item_list1, item_list2):
     i2 = 0
     len1 = len(item_list1)
     len2 = len(item_list2)
+    merged_list = [None] * (len1 + len2)
     if len1 == 0 and len2 == 0:
         return []
     ascending = None
@@ -84,24 +85,27 @@ def list_merge_two_sorted_lists(item_list1, item_list2):
     else:
         raise ValueError('item_list1 is not sorted')
 
+    m = 0
     while i1 < len1 and i2 < len2:
-        if i1 < len1 and i2 < len2:
-            if ascending:
-                if item_list1[i1] <= item_list2[i2]:
-                    merged_list.append(item_list1[i1])
-                    i1 += 1
-                else:
-                    merged_list.append(item_list2[i2])
-                    i2 += 1
+        if ascending:
+            if item_list1[i1] <= item_list2[i2]:
+                merged_list[m] = item_list1[i1]
+                i1 += 1
             else:
-                if item_list1[i1] >= item_list2[i2]:
-                    merged_list.append(item_list1[i1])
-                    i1 += 1
-                else:
-                    merged_list.append(item_list2[i2])
-                    i2 += 1
+                merged_list[m] = item_list2[i2]
+                i2 += 1
+        else:
+            if item_list1[i1] >= item_list2[i2]:
+                merged_list[m] = item_list1[i1]
+                i1 += 1
+            else:
+                merged_list[m] = item_list2[i2]
+                i2 += 1
+        m += 1
     for j in range(i1, len1):
-        merged_list.append(item_list1[j])
+        merged_list[m] = item_list1[j]
+        m += 1
     for j in range(i2, len2):
-        merged_list.append(item_list2[j])
+        merged_list[m] = item_list2[j]
+        m+= 1
     return merged_list
