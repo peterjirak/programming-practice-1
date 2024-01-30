@@ -7,8 +7,7 @@ if __name__ == '__main__':
     subset = subset_generator.get_next_subset()
     i = 1
     while (subset):
-        print(f"{i}: ", end='')
-        print(subset)
+        print(f"{i}: {subset}")
         i += 1
         subset = subset_generator.get_next_subset()
     
