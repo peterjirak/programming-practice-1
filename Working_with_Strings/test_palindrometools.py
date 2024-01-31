@@ -1,4 +1,4 @@
-from palindrometools import there_is_a_permutation_that_is_a_palindrome
+from palindrometools import there_is_a_permutation_that_is_a_palindrome, palindrome_checker
 
 def test_have_palindromes():
     has_palindromes = there_is_a_permutation_that_is_a_palindrome('Panama: a man, a plan, a canal')
@@ -23,3 +23,30 @@ def test_does_not_have_palindromes():
     assert not has_palindromes, "There are no permutations that are palindromes - 'New Orleans'"
     has_palindromes = there_is_a_permutation_that_is_a_palindrome('Minneapolis')
     assert not has_palindromes, "There are no permutations that are palindromes - 'Minneapolis'"
+
+def test_palindrome_checker():
+    assert palindrome_checker('A Man, a Plan, a Canal, Panama!') == 'A Man, a Plan, a Canal, Panama!', (
+           "'A Man, a Plan, a Canal, Panama!' is a palindrome")
+
+    assert palindrome_checker('racecar') == 'racecar', (
+           "'racecar' is a palindrome")
+
+    assert palindrome_checker('level') == 'level', (
+           "'level' is a palindrome")
+
+    assert palindrome_checker('levels') == 'level', (
+           "'levels' is a palindrome after deleting the s")
+
+    assert palindrome_checker('bracecar') == 'racecar', (
+           "'bracecar' is a palindrome after deleting the b")
+
+    assert palindrome_checker('Madfam') == 'Madam', (
+           "'Madfam' is a palindrome after deleting the f")
+
+    assert palindrome_checker('Madam, in Eden, I’m SAdam.') == 'Madam, in Eden, I’m Adam.', (
+           "'Madam, in Eden, I’m Adam.' is a palindrome after deleting the S")
+
+
+
+if __name__ == '__main__':
+    test_palindrome_checker()
